@@ -1,4 +1,4 @@
-# mercado-exemplo
+# mercado-models
 
 Exemplo básico de sistema orientado a objetos para um sistema de mercado
 

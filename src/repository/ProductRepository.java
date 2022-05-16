@@ -1,33 +1,33 @@
 package repository;
 
-import exemplo.Produto;
+import models.Produto;
 
 import java.util.*;
 
 public class ProductRepository {
-    private Map<String, Produto> catalogo;
+    private Map<String, Produto> produtos;
 
     public ProductRepository() {
-        this.catalogo = new HashMap<>();
+        this.produtos = new HashMap<>();
     }
-
     public String addProduto(Produto p){
-        catalogo.put(p.getId(), p);
+        produtos.put(p.getId(), p);
         return p.getId();
     }
+    public List<Produto> getAll(){
+        return new ArrayList<>(produtos.values());
+    }
     public String editarProduto(Produto produtoAlterado){
-        catalogo.replace(produtoAlterado.getId(), produtoAlterado);
+        produtos.replace(produtoAlterado.getId(), produtoAlterado);
         return produtoAlterado.getId();
     }
     public Produto getProduto(String id){
-        return catalogo.get(id);
+        return produtos.get(id);
     }
     public String deleteProduto(String id){
-        catalogo.remove(id);
+        produtos.remove(id);
         return id;
     }
-    public List<Produto> listProdutos(){
-        return new ArrayList<>(catalogo.values());
-    }
+
 
 }

@@ -1,6 +1,6 @@
 package repository;
 
-import exemplo.Lote;
+import models.Lote;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,27 +8,28 @@ import java.util.List;
 import java.util.Map;
 
 public class LoteRepository {
-    Map<String, Lote> estoque;
+    Map<String, Lote> lotes;
 
     public LoteRepository() {
-        this.estoque = new HashMap<>();
+        this.lotes = new HashMap<>();
     }
     public String addLote(Lote lote){
-        estoque.put(lote.getId(), lote);
+        lotes.put(lote.getId(), lote);
         return lote.getId();
+    }
+
+    public Lote getLote(String idLote){
+        return lotes.get(idLote);
+    }
+    public List<Lote> getAll(){
+        return new ArrayList<>(lotes.values());
     }
     public String editarLote(Lote lote){
-        estoque.replace(lote.getId(), lote);
+        lotes.replace(lote.getId(), lote);
         return lote.getId();
     }
-    public Lote getLote(String idLote){
-        return estoque.get(idLote);
-    }
     public String deleteLote(String idLote){
-        estoque.remove(idLote);
+        lotes.remove(idLote);
         return idLote;
-    }
-    public List<Lote> listLotes(){
-        return new ArrayList<>(estoque.values());
     }
 }
