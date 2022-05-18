@@ -17,7 +17,6 @@ public class LoteRepository {
         lotes.put(lote.getId(), lote);
         return lote.getId();
     }
-
     public Lote getLote(String idLote){
         return lotes.get(idLote);
     }
